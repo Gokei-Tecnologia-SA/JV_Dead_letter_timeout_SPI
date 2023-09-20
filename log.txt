@@ -1,0 +1,396 @@
+#OPN => 2023-08-22 16:53:06.031
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-08-22 16:53:06.080
+
+#OPN => 2023-08-22 16:53:06.779
+Iniciando reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22
+#CLS => 2023-08-22 16:53:06.779
+
+#OPN => 2023-08-22 16:53:06.937
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:53:06.937
+
+#OPN => 2023-08-22 16:53:06.938
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o header: {spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[057aa539-5aa6-4f5f-a0e3-af84b90bc08a], current-attempt=[6], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}
+#CLS => 2023-08-22 16:53:06.938
+
+#OPN => 2023-08-22 16:53:06.940
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/admi.002/1.3"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;
+VJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;
+LZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;
+kDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;
+y9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>
+#CLS => 2023-08-22 16:53:06.940
+
+#OPN => 2023-08-22 16:53:07.199
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:53:07.199
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:53:07.268
+Webhook da mensagem com mongoId 64dce6d74891e3553a09ef22 atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 6, "http": {"request": {"data": "2023-08-22 16:53:06.937", "head": "{spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[057aa539-5aa6-4f5f-a0e3-af84b90bc08a], current-attempt=[6], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;\nVJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;\nLZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;\nkDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;\ny9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:53:07.268
+
+#OPN => 2023-08-22 16:53:31.016
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-08-22 16:53:31.092
+
+#OPN => 2023-08-22 16:53:31.811
+Iniciando reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22
+#CLS => 2023-08-22 16:53:31.811
+
+#OPN => 2023-08-22 16:53:31.957
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:53:31.957
+
+#OPN => 2023-08-22 16:53:31.959
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o header: {spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[bb97ee25-5220-49de-84c8-9a0d99db7e0f], current-attempt=[7], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}
+#CLS => 2023-08-22 16:53:31.959
+
+#OPN => 2023-08-22 16:53:31.960
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/admi.002/1.3"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;
+VJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;
+LZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;
+kDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;
+y9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>
+#CLS => 2023-08-22 16:53:31.961
+
+#OPN => 2023-08-22 16:53:32.198
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:53:32.199
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:53:32.249
+Webhook da mensagem com mongoId 64dce6d74891e3553a09ef22 atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 7, "http": {"request": {"data": "2023-08-22 16:53:31.956", "head": "{spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[bb97ee25-5220-49de-84c8-9a0d99db7e0f], current-attempt=[7], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;\nVJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;\nLZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;\nkDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;\ny9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:53:32.250
+
+#OPN => 2023-08-22 16:58:32.698
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-08-22 16:58:32.737
+
+#OPN => 2023-08-22 16:58:33.174
+Iniciando reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22
+#CLS => 2023-08-22 16:58:33.176
+
+#OPN => 2023-08-22 16:58:33.298
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:33.298
+
+#OPN => 2023-08-22 16:58:33.298
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o header: {spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[8e724d69-0023-4bb3-bd1a-46455aab491a], current-attempt=[8], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}
+#CLS => 2023-08-22 16:58:33.298
+
+#OPN => 2023-08-22 16:58:33.299
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/admi.002/1.3"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;
+VJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;
+LZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;
+kDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;
+y9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>
+#CLS => 2023-08-22 16:58:33.299
+
+#OPN => 2023-08-22 16:58:44.445
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:44.445
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:58:44.515
+Webhook da mensagem com mongoId 64dce6d74891e3553a09ef22 atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 8, "http": {"request": {"data": "2023-08-22 16:58:33.297", "head": "{spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[8e724d69-0023-4bb3-bd1a-46455aab491a], current-attempt=[8], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;\nVJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;\nLZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;\nkDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;\ny9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:58:44.515
+
+#OPN => 2023-08-22 16:58:44.518
+Iniciando reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348
+#CLS => 2023-08-22 16:58:44.518
+
+#OPN => 2023-08-22 16:58:44.519
+Reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348 usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:44.519
+
+#OPN => 2023-08-22 16:58:44.520
+Reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348 usando o header: {spi-message-code=[camt053], spi-message-version=[camt.053.spi.1.2], IdempotencyKey=[a1823ca6-85f0-4b34-82f2-fcc6a4e80350], current-attempt=[6], content-type=[application/xml], spi-message-id=[M000381660LLDVDDK311AG0D8T9XLOKC]}
+#CLS => 2023-08-22 16:58:44.520
+
+#OPN => 2023-08-22 16:58:44.520
+Reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348 usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/camt.053/1.2"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVDDK311AG0D8T9XLOKC</BizMsgIdr><MsgDefIdr>camt.053.spi.1.2</MsgDefIdr><CreDt>2023-08-16T15:10:27.555Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>zCh6iy0qrFcyQkASU333IJUChOxUaD9xj53Cr4To/F0=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>t5gH0g9ix+q89v8VvRrWhMtP3M2NsyES1013fwR65O0=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>REJyjEGFTlb4+4WFWTK9d77HTKCIb4HpvijsWNK0tDu3bZIH2iG7GwFUOvSxVTiPMsDUssg+HNMx&#13;
+dVxIF3c2cMXhsgt1wpVCbJ6i++PUEAMzqxky035U6QP2LzB1G6EIfnDe+XqNpwr0Ns1FU2EuMn+1&#13;
+MXAeSND8cCWgMY5lh0tgMyTLhP/tctmhbYdcm8xQF13Q4p9v86PGUdWTBR6JYZqQ5SzWg4IZ/bCO&#13;
+/avIiuQq4ffgsq+GTrggkvr1PoKcOip1F9YmfRQIMU8/yIRjePls8MzN0z43JCZENChZ6icrH+6p&#13;
+d1hap3FMc4tVZ2j9LQ2yqj3BqXnQJxTALsIacg==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><BkToCstmrStmt><GrpHdr><MsgId>M000381660LLDVDDK311AG0D8T9XLOKC</MsgId><CreDtTm>2023-08-16T15:10:27.555Z</CreDtTm></GrpHdr><Stmt><Id>M786327671wPzEoeYRatxd6uY0bTbW1S</Id><Acct><Id><Othr><Id>78632767</Id></Othr></Id></Acct><Bal><Tp><CdOrPrtry><Prtry>SADP</Prtry></CdOrPrtry></Tp><Amt Ccy="BRL">29595718624.94</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal><Bal><Tp><CdOrPrtry><Prtry>SABK</Prtry></CdOrPrtry></Tp><Amt Ccy="BRL">0.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal></Stmt></BkToCstmrStmt></Document></Envelope>
+#CLS => 2023-08-22 16:58:44.521
+
+#OPN => 2023-08-22 16:58:44.522
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:44.522
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:58:44.541
+Webhook da mensagem com mongoId 64dce6f71c5db12fc18d0348 atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 6, "http": {"request": {"data": "2023-08-22 16:58:44.518", "head": "{spi-message-code=[camt053], spi-message-version=[camt.053.spi.1.2], IdempotencyKey=[a1823ca6-85f0-4b34-82f2-fcc6a4e80350], current-attempt=[6], content-type=[application/xml], spi-message-id=[M000381660LLDVDDK311AG0D8T9XLOKC]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/camt.053/1.2\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVDDK311AG0D8T9XLOKC</BizMsgIdr><MsgDefIdr>camt.053.spi.1.2</MsgDefIdr><CreDt>2023-08-16T15:10:27.555Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>zCh6iy0qrFcyQkASU333IJUChOxUaD9xj53Cr4To/F0=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>t5gH0g9ix+q89v8VvRrWhMtP3M2NsyES1013fwR65O0=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>REJyjEGFTlb4+4WFWTK9d77HTKCIb4HpvijsWNK0tDu3bZIH2iG7GwFUOvSxVTiPMsDUssg+HNMx&#13;\ndVxIF3c2cMXhsgt1wpVCbJ6i++PUEAMzqxky035U6QP2LzB1G6EIfnDe+XqNpwr0Ns1FU2EuMn+1&#13;\nMXAeSND8cCWgMY5lh0tgMyTLhP/tctmhbYdcm8xQF13Q4p9v86PGUdWTBR6JYZqQ5SzWg4IZ/bCO&#13;\n/avIiuQq4ffgsq+GTrggkvr1PoKcOip1F9YmfRQIMU8/yIRjePls8MzN0z43JCZENChZ6icrH+6p&#13;\nd1hap3FMc4tVZ2j9LQ2yqj3BqXnQJxTALsIacg==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><BkToCstmrStmt><GrpHdr><MsgId>M000381660LLDVDDK311AG0D8T9XLOKC</MsgId><CreDtTm>2023-08-16T15:10:27.555Z</CreDtTm></GrpHdr><Stmt><Id>M786327671wPzEoeYRatxd6uY0bTbW1S</Id><Acct><Id><Othr><Id>78632767</Id></Othr></Id></Acct><Bal><Tp><CdOrPrtry><Prtry>SADP</Prtry></CdOrPrtry></Tp><Amt Ccy=\"BRL\">29595718624.94</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal><Bal><Tp><CdOrPrtry><Prtry>SABK</Prtry></CdOrPrtry></Tp><Amt Ccy=\"BRL\">0.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal></Stmt></BkToCstmrStmt></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:58:44.541
+
+#OPN => 2023-08-22 16:58:44.543
+Iniciando reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde
+#CLS => 2023-08-22 16:58:44.543
+
+#OPN => 2023-08-22 16:58:44.544
+Reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:44.544
+
+#OPN => 2023-08-22 16:58:44.544
+Reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde usando o header: {spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[a8e7db02-8b47-4ed7-96a3-7f8be23452ef], current-attempt=[6], content-type=[application/xml], spi-message-id=[M000381660LLDVV1PC11I9DTAT0WZ97G]}
+#CLS => 2023-08-22 16:58:44.545
+
+#OPN => 2023-08-22 16:58:44.545
+Reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/admi.002/1.3"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVV1PC11I9DTAT0WZ97G</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:24:12.000Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>8sfvTZPDoADsgCJ7Rrei1Rz78XkUu3w7h1L8K+WCB1Y=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>4L8J3FKW07UiFQ2A696A+g6O8EzXG8wAIUshTgYyBx8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>b2NrUg2Wr4aS5pSzWE8hwumKr/E4E/J/7RknlEPRazPECp3eyXRSEecSYbTAGOPbGoRlMXS0c1iu&#13;
+T7GCNqAnYdkRQhh2Bll350zEQDfciW6OT7O+xkois8G7tg3wIwZllKDjKrn/tV+7w28z81V6/r/2&#13;
+euHtNojtb5SW8uDg6eqhb7dPb8rvPOEsGmMED0TkvWcAEc8jn1evlrD5hDWxKc95ZUoUlVjjUeGf&#13;
+sGwppkrViUZUDDueoPe7dOjEwOpI29La9fQPKTLebAg7lKlqLCKy/gwiCW8crv3sGuYDVtTLuF2t&#13;
+OXMI4qn2qH9kctgp2L5l1bRNQEwCQnL3cqHbog==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M78632767OsdnfkKHbLsN3thzNT7uf4x</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:24:11.953Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>
+#CLS => 2023-08-22 16:58:44.545
+
+#OPN => 2023-08-22 16:58:44.546
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:44.546
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:58:44.564
+Webhook da mensagem com mongoId 64dcea30fe30f251b06e6cde atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 6, "http": {"request": {"data": "2023-08-22 16:58:44.544", "head": "{spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[a8e7db02-8b47-4ed7-96a3-7f8be23452ef], current-attempt=[6], content-type=[application/xml], spi-message-id=[M000381660LLDVV1PC11I9DTAT0WZ97G]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVV1PC11I9DTAT0WZ97G</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:24:12.000Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>8sfvTZPDoADsgCJ7Rrei1Rz78XkUu3w7h1L8K+WCB1Y=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>4L8J3FKW07UiFQ2A696A+g6O8EzXG8wAIUshTgYyBx8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>b2NrUg2Wr4aS5pSzWE8hwumKr/E4E/J/7RknlEPRazPECp3eyXRSEecSYbTAGOPbGoRlMXS0c1iu&#13;\nT7GCNqAnYdkRQhh2Bll350zEQDfciW6OT7O+xkois8G7tg3wIwZllKDjKrn/tV+7w28z81V6/r/2&#13;\neuHtNojtb5SW8uDg6eqhb7dPb8rvPOEsGmMED0TkvWcAEc8jn1evlrD5hDWxKc95ZUoUlVjjUeGf&#13;\nsGwppkrViUZUDDueoPe7dOjEwOpI29La9fQPKTLebAg7lKlqLCKy/gwiCW8crv3sGuYDVtTLuF2t&#13;\nOXMI4qn2qH9kctgp2L5l1bRNQEwCQnL3cqHbog==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M78632767OsdnfkKHbLsN3thzNT7uf4x</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:24:11.953Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:58:44.565
+
+#OPN => 2023-08-22 16:58:59.596
+Iniciando reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22
+#CLS => 2023-08-22 16:58:59.596
+
+#OPN => 2023-08-22 16:58:59.597
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:59.597
+
+#OPN => 2023-08-22 16:58:59.598
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o header: {spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[1a46ab3b-f79b-4a7c-a709-1c487ee3d0d7], current-attempt=[9], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}
+#CLS => 2023-08-22 16:58:59.598
+
+#OPN => 2023-08-22 16:58:59.598
+Reenvio da mensagem com mongoId 64dce6d74891e3553a09ef22 usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/admi.002/1.3"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;
+VJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;
+LZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;
+kDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;
+y9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>
+#CLS => 2023-08-22 16:58:59.598
+
+#OPN => 2023-08-22 16:58:59.671
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:59.672
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:58:59.698
+Webhook da mensagem com mongoId 64dce6d74891e3553a09ef22 atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 9, "http": {"request": {"data": "2023-08-22 16:58:59.597", "head": "{spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[1a46ab3b-f79b-4a7c-a709-1c487ee3d0d7], current-attempt=[9], content-type=[application/xml], spi-message-id=[M000381660LLDVCOYZ11AKENSMHCPL8E]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVCOYZ11AKENSMHCPL8E</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:09:55.691Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>GdI33PijYHK/DSJvpx81yueFW5AmucqmjWyekZORO90=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>8JGYj4qfj8XRmiZGFo8DRh4u2nw1cbLrYJ5tnAQCZ/g=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>0vXDhcHEZki3+sGUS8dmCYcj1zA2szmKNF2F2RIMTGb7rx/YQS7gQsysG2zJXPnM/JTub5F2ckk6&#13;\nVJ/AVhQ0BslhYLYG/HtmEZEg2bByfZ8bND1WzuAwKqqYLpm7G0Qbv1GBuy2Wjv7Ca8R9B/aeI4XH&#13;\nLZM/r6mHsd1ldHkHt99ohgfk4gRSTjnBcMUCThO0LjjM83lk924eR3rFmvu/u4Ev48SqeXo5rdmb&#13;\nkDqgWLB8PzC1jORpLzsVkx6giknoE1ulwal8lU3gxD8FktEvIfTC5j42tpFL1zs/Ne/+GtOWSVTF&#13;\ny9SaKsGQuloQa7hLie3cywtVXWcS8YECYfEo/w==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M786327676AC8MRNCDfaQuUrnMrhn29v</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:09:55.629Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:58:59.698
+
+#OPN => 2023-08-22 16:58:59.700
+Iniciando reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348
+#CLS => 2023-08-22 16:58:59.700
+
+#OPN => 2023-08-22 16:58:59.701
+Reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348 usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:59.701
+
+#OPN => 2023-08-22 16:58:59.701
+Reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348 usando o header: {spi-message-code=[camt053], spi-message-version=[camt.053.spi.1.2], IdempotencyKey=[f2e8cce3-a39d-4c83-a324-099079048335], current-attempt=[7], content-type=[application/xml], spi-message-id=[M000381660LLDVDDK311AG0D8T9XLOKC]}
+#CLS => 2023-08-22 16:58:59.701
+
+#OPN => 2023-08-22 16:58:59.702
+Reenvio da mensagem com mongoId 64dce6f71c5db12fc18d0348 usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/camt.053/1.2"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVDDK311AG0D8T9XLOKC</BizMsgIdr><MsgDefIdr>camt.053.spi.1.2</MsgDefIdr><CreDt>2023-08-16T15:10:27.555Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>zCh6iy0qrFcyQkASU333IJUChOxUaD9xj53Cr4To/F0=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>t5gH0g9ix+q89v8VvRrWhMtP3M2NsyES1013fwR65O0=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>REJyjEGFTlb4+4WFWTK9d77HTKCIb4HpvijsWNK0tDu3bZIH2iG7GwFUOvSxVTiPMsDUssg+HNMx&#13;
+dVxIF3c2cMXhsgt1wpVCbJ6i++PUEAMzqxky035U6QP2LzB1G6EIfnDe+XqNpwr0Ns1FU2EuMn+1&#13;
+MXAeSND8cCWgMY5lh0tgMyTLhP/tctmhbYdcm8xQF13Q4p9v86PGUdWTBR6JYZqQ5SzWg4IZ/bCO&#13;
+/avIiuQq4ffgsq+GTrggkvr1PoKcOip1F9YmfRQIMU8/yIRjePls8MzN0z43JCZENChZ6icrH+6p&#13;
+d1hap3FMc4tVZ2j9LQ2yqj3BqXnQJxTALsIacg==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><BkToCstmrStmt><GrpHdr><MsgId>M000381660LLDVDDK311AG0D8T9XLOKC</MsgId><CreDtTm>2023-08-16T15:10:27.555Z</CreDtTm></GrpHdr><Stmt><Id>M786327671wPzEoeYRatxd6uY0bTbW1S</Id><Acct><Id><Othr><Id>78632767</Id></Othr></Id></Acct><Bal><Tp><CdOrPrtry><Prtry>SADP</Prtry></CdOrPrtry></Tp><Amt Ccy="BRL">29595718624.94</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal><Bal><Tp><CdOrPrtry><Prtry>SABK</Prtry></CdOrPrtry></Tp><Amt Ccy="BRL">0.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal></Stmt></BkToCstmrStmt></Document></Envelope>
+#CLS => 2023-08-22 16:58:59.702
+
+#OPN => 2023-08-22 16:58:59.703
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:59.703
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:58:59.727
+Webhook da mensagem com mongoId 64dce6f71c5db12fc18d0348 atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 7, "http": {"request": {"data": "2023-08-22 16:58:59.700", "head": "{spi-message-code=[camt053], spi-message-version=[camt.053.spi.1.2], IdempotencyKey=[f2e8cce3-a39d-4c83-a324-099079048335], current-attempt=[7], content-type=[application/xml], spi-message-id=[M000381660LLDVDDK311AG0D8T9XLOKC]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/camt.053/1.2\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVDDK311AG0D8T9XLOKC</BizMsgIdr><MsgDefIdr>camt.053.spi.1.2</MsgDefIdr><CreDt>2023-08-16T15:10:27.555Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>zCh6iy0qrFcyQkASU333IJUChOxUaD9xj53Cr4To/F0=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>t5gH0g9ix+q89v8VvRrWhMtP3M2NsyES1013fwR65O0=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>REJyjEGFTlb4+4WFWTK9d77HTKCIb4HpvijsWNK0tDu3bZIH2iG7GwFUOvSxVTiPMsDUssg+HNMx&#13;\ndVxIF3c2cMXhsgt1wpVCbJ6i++PUEAMzqxky035U6QP2LzB1G6EIfnDe+XqNpwr0Ns1FU2EuMn+1&#13;\nMXAeSND8cCWgMY5lh0tgMyTLhP/tctmhbYdcm8xQF13Q4p9v86PGUdWTBR6JYZqQ5SzWg4IZ/bCO&#13;\n/avIiuQq4ffgsq+GTrggkvr1PoKcOip1F9YmfRQIMU8/yIRjePls8MzN0z43JCZENChZ6icrH+6p&#13;\nd1hap3FMc4tVZ2j9LQ2yqj3BqXnQJxTALsIacg==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><BkToCstmrStmt><GrpHdr><MsgId>M000381660LLDVDDK311AG0D8T9XLOKC</MsgId><CreDtTm>2023-08-16T15:10:27.555Z</CreDtTm></GrpHdr><Stmt><Id>M786327671wPzEoeYRatxd6uY0bTbW1S</Id><Acct><Id><Othr><Id>78632767</Id></Othr></Id></Acct><Bal><Tp><CdOrPrtry><Prtry>SADP</Prtry></CdOrPrtry></Tp><Amt Ccy=\"BRL\">29595718624.94</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal><Bal><Tp><CdOrPrtry><Prtry>SABK</Prtry></CdOrPrtry></Tp><Amt Ccy=\"BRL\">0.00</Amt><CdtDbtInd>CRDT</CdtDbtInd><Dt><DtTm>2023-08-16T14:42:35.061Z</DtTm></Dt></Bal></Stmt></BkToCstmrStmt></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:58:59.727
+
+#OPN => 2023-08-22 16:58:59.728
+Iniciando reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde
+#CLS => 2023-08-22 16:58:59.729
+
+#OPN => 2023-08-22 16:58:59.729
+Reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde usando o endpoint: https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:59.729
+
+#OPN => 2023-08-22 16:58:59.731
+Reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde usando o header: {spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[bd5a3333-da7e-48da-8e81-ed4619097e3e], current-attempt=[7], content-type=[application/xml], spi-message-id=[M000381660LLDVV1PC11I9DTAT0WZ97G]}
+#CLS => 2023-08-22 16:58:59.731
+
+#OPN => 2023-08-22 16:58:59.732
+Reenvio da mensagem com mongoId 64dcea30fe30f251b06e6cde usando o body: <?xml version="1.0" encoding="UTF-8" standalone="no"?><Envelope xmlns="https://www.bcb.gov.br/pi/admi.002/1.3"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVV1PC11I9DTAT0WZ97G</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:24:12.000Z</CreDt><Sgntr><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><ds:Reference URI="#key-info-id"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=""><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>8sfvTZPDoADsgCJ7Rrei1Rz78XkUu3w7h1L8K+WCB1Y=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><ds:DigestValue>4L8J3FKW07UiFQ2A696A+g6O8EzXG8wAIUshTgYyBx8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>b2NrUg2Wr4aS5pSzWE8hwumKr/E4E/J/7RknlEPRazPECp3eyXRSEecSYbTAGOPbGoRlMXS0c1iu&#13;
+T7GCNqAnYdkRQhh2Bll350zEQDfciW6OT7O+xkois8G7tg3wIwZllKDjKrn/tV+7w28z81V6/r/2&#13;
+euHtNojtb5SW8uDg6eqhb7dPb8rvPOEsGmMED0TkvWcAEc8jn1evlrD5hDWxKc95ZUoUlVjjUeGf&#13;
+sGwppkrViUZUDDueoPe7dOjEwOpI29La9fQPKTLebAg7lKlqLCKy/gwiCW8crv3sGuYDVtTLuF2t&#13;
+OXMI4qn2qH9kctgp2L5l1bRNQEwCQnL3cqHbog==</ds:SignatureValue><ds:KeyInfo Id="key-info-id"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M78632767OsdnfkKHbLsN3thzNT7uf4x</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:24:11.953Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>
+#CLS => 2023-08-22 16:58:59.732
+
+#OPN => 2023-08-22 16:58:59.733
+Erro ao tentar realizar chamada para o endpoint https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+#CLS => 2023-08-22 16:58:59.733
+
+java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:333)
+	at java.base/java.net.Socket.connect(Socket.java:645)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:300)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:177)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:497)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:600)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:265)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:379)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:189)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1232)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1120)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:175)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(HttpURLConnection.java:1419)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getOutputStream(HttpURLConnection.java:1390)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getOutputStream(HttpsURLConnectionImpl.java:220)
+	at entities.WebhookManager.sendRequest(WebhookManager.java:64)
+	at dead_letter_spi.Dead_letter_SPI.reenviaMensagem(Dead_letter_SPI.java:160)
+	at dead_letter_spi.Dead_letter_SPI.main(Dead_letter_SPI.java:67)
+#OPN => 2023-08-22 16:58:59.764
+Webhook da mensagem com mongoId 64dcea30fe30f251b06e6cde atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 7, "http": {"request": {"data": "2023-08-22 16:58:59.729", "head": "{spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[bd5a3333-da7e-48da-8e81-ed4619097e3e], current-attempt=[7], content-type=[application/xml], spi-message-id=[M000381660LLDVV1PC11I9DTAT0WZ97G]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVV1PC11I9DTAT0WZ97G</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:24:12.000Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>8sfvTZPDoADsgCJ7Rrei1Rz78XkUu3w7h1L8K+WCB1Y=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>4L8J3FKW07UiFQ2A696A+g6O8EzXG8wAIUshTgYyBx8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>b2NrUg2Wr4aS5pSzWE8hwumKr/E4E/J/7RknlEPRazPECp3eyXRSEecSYbTAGOPbGoRlMXS0c1iu&#13;\nT7GCNqAnYdkRQhh2Bll350zEQDfciW6OT7O+xkois8G7tg3wIwZllKDjKrn/tV+7w28z81V6/r/2&#13;\neuHtNojtb5SW8uDg6eqhb7dPb8rvPOEsGmMED0TkvWcAEc8jn1evlrD5hDWxKc95ZUoUlVjjUeGf&#13;\nsGwppkrViUZUDDueoPe7dOjEwOpI29La9fQPKTLebAg7lKlqLCKy/gwiCW8crv3sGuYDVtTLuF2t&#13;\nOXMI4qn2qH9kctgp2L5l1bRNQEwCQnL3cqHbog==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M78632767OsdnfkKHbLsN3thzNT7uf4x</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:24:11.953Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
+#CLS => 2023-08-22 16:58:59.764
+
