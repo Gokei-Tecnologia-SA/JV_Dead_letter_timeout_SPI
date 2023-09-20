@@ -394,3 +394,195 @@ java.net.UnknownHostException: api-pix-gokei-hml.ourinvest.com.br
 Webhook da mensagem com mongoId 64dcea30fe30f251b06e6cde atualizado para: {"endpoint": "https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages", "tentativa": 7, "http": {"request": {"data": "2023-08-22 16:58:59.729", "head": "{spi-message-code=[admi002], spi-message-version=[admi.002.spi.1.3], IdempotencyKey=[bd5a3333-da7e-48da-8e81-ed4619097e3e], current-attempt=[7], content-type=[application/xml], spi-message-id=[M000381660LLDVV1PC11I9DTAT0WZ97G]}", "body": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>00038166</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M000381660LLDVV1PC11I9DTAT0WZ97G</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-08-16T15:24:12.000Z</CreDt><Sgntr><ds:Signature xmlns:ds=\"http://www.w3.org/2000/09/xmldsig#\"><ds:SignedInfo><ds:CanonicalizationMethod Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/><ds:SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmldsig-more#rsa-sha256\"/><ds:Reference URI=\"#key-info-id\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>fP/HFS5THGMXKt0aQSFg/xnmHeFXDuvba/b0UULkj9U=</ds:DigestValue></ds:Reference><ds:Reference URI=\"\"><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>8sfvTZPDoADsgCJ7Rrei1Rz78XkUu3w7h1L8K+WCB1Y=</ds:DigestValue></ds:Reference><ds:Reference><ds:Transforms><ds:Transform Algorithm=\"http://www.w3.org/2001/10/xml-exc-c14n#\"/></ds:Transforms><ds:DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><ds:DigestValue>4L8J3FKW07UiFQ2A696A+g6O8EzXG8wAIUshTgYyBx8=</ds:DigestValue></ds:Reference></ds:SignedInfo><ds:SignatureValue>b2NrUg2Wr4aS5pSzWE8hwumKr/E4E/J/7RknlEPRazPECp3eyXRSEecSYbTAGOPbGoRlMXS0c1iu&#13;\nT7GCNqAnYdkRQhh2Bll350zEQDfciW6OT7O+xkois8G7tg3wIwZllKDjKrn/tV+7w28z81V6/r/2&#13;\neuHtNojtb5SW8uDg6eqhb7dPb8rvPOEsGmMED0TkvWcAEc8jn1evlrD5hDWxKc95ZUoUlVjjUeGf&#13;\nsGwppkrViUZUDDueoPe7dOjEwOpI29La9fQPKTLebAg7lKlqLCKy/gwiCW8crv3sGuYDVtTLuF2t&#13;\nOXMI4qn2qH9kctgp2L5l1bRNQEwCQnL3cqHbog==</ds:SignatureValue><ds:KeyInfo Id=\"key-info-id\"><ds:X509Data><ds:X509IssuerSerial><ds:X509IssuerName>CN=Autoridade Certificadora do SERPRO Final SSL, OU=Servico Federal de Processamento de Dados - SERPRO, OU=CSPB-1, O=ICP-Brasil, C=BR</ds:X509IssuerName><ds:X509SerialNumber>16220846674141377239913245580</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></ds:KeyInfo></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M78632767OsdnfkKHbLsN3thzNT7uf4x</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento do SPI</RjctgPtyRsn><RjctnDtTm>2023-08-16T15:24:11.953Z</RjctnDtTm><RsnDesc>Não existe saldo consolidado de final do dia para a data e participante indicados</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>"}, "response": {"data": null, "head": null, "body": ""}}}
 #CLS => 2023-08-22 16:58:59.764
 
+#OPN => 2023-09-20 11:30:56.290
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 11:30:56.319
+
+#OPN => 2023-09-20 11:33:20.141
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 11:33:20.183
+
+#OPN => 2023-09-20 12:13:56.175
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 12:13:56.214
+
+#OPN => 2023-09-20 12:14:25.005
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 12:14:25.053
+
+#OPN => 2023-09-20 12:14:38.148
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 12:14:38.180
+
+#OPN => 2023-09-20 12:17:13.359
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 12:17:13.385
+
+#OPN => 2023-09-20 12:55:25.367
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 12:55:25.396
+
+#OPN => 2023-09-20 12:57:28.053
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 12:57:28.083
+
+#OPN => 2023-09-20 13:00:45.939
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 13:00:45.971
+
+#OPN => 2023-09-20 13:03:30.025
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 13:03:30.064
+
+#OPN => 2023-09-20 13:45:16.269
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 13:45:16.302
+
+#OPN => 2023-09-20 14:08:32.988
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:08:33.021
+
+#OPN => 2023-09-20 14:25:41.016
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:25:41.044
+
+#OPN => 2023-09-20 14:33:27.882
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:33:27.916
+
+#OPN => 2023-09-20 14:38:37.215
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:38:37.254
+
+#OPN => 2023-09-20 14:43:19.681
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:43:19.709
+
+#OPN => 2023-09-20 14:45:08.889
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:45:08.917
+
+#OPN => 2023-09-20 14:45:57.678
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:45:57.706
+
+#OPN => 2023-09-20 14:50:13.250
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:50:13.278
+
+#OPN => 2023-09-20 14:51:08.591
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:51:08.617
+
+#OPN => 2023-09-20 14:51:55.858
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:51:55.886
+
+#OPN => 2023-09-20 14:52:19.578
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:52:19.611
+
+#OPN => 2023-09-20 14:53:26.672
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:53:26.703
+
+#OPN => 2023-09-20 14:55:00.608
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:55:00.635
+
+#OPN => 2023-09-20 14:55:57.878
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:55:57.918
+
+#OPN => 2023-09-20 14:58:12.999
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:58:13.026
+
+#OPN => 2023-09-20 14:59:41.119
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 14:59:41.148
+
+#OPN => 2023-09-20 15:01:04.775
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:01:04.803
+
+#OPN => 2023-09-20 15:02:15.125
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:02:15.154
+
+#OPN => 2023-09-20 15:03:41.450
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:03:41.482
+
+#OPN => 2023-09-20 15:06:14.792
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:06:14.823
+
+#OPN => 2023-09-20 15:09:44.603
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:09:44.630
+
+#OPN => 2023-09-20 15:09:54.025
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:09:54.054
+
+#OPN => 2023-09-20 15:11:37.959
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:11:37.992
+
+#OPN => 2023-09-20 15:13:06.414
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:13:06.445
+
+#OPN => 2023-09-20 15:14:30.195
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:14:30.224
+
+#OPN => 2023-09-20 15:44:15.973
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 15:44:16.005
+
+#OPN => 2023-09-20 16:09:13.793
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:09:13.823
+
+#OPN => 2023-09-20 16:09:37.616
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:09:37.643
+
+#OPN => 2023-09-20 16:10:45.117
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:10:45.144
+
+#OPN => 2023-09-20 16:11:42.049
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:11:42.078
+
+#OPN => 2023-09-20 16:12:38.214
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:12:38.240
+
+#OPN => 2023-09-20 16:15:37.056
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:15:37.088
+
+#OPN => 2023-09-20 16:18:37.581
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:18:37.607
+
+#OPN => 2023-09-20 16:23:21.337
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:23:21.369
+
+#OPN => 2023-09-20 16:30:02.248
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:30:02.281
+
+#OPN => 2023-09-20 16:32:14.602
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:32:14.629
+
+#OPN => 2023-09-20 16:34:04.745
+Aplicação iniciada no ambiente: homol
+#CLS => 2023-09-20 16:34:04.780
+

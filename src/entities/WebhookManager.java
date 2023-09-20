@@ -2,7 +2,7 @@ package entities;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.result.UpdateResult;
-import dead_letter_spi.Dead_letter_SPI;
+import dead_letter_spi.Dead_letter_timeout_SPI;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -130,7 +130,7 @@ public class WebhookManager {
         
         BasicDBObject updateObject = new BasicDBObject();
         updateObject.put("$set", updateDocument);
-        UpdateResult result = Dead_letter_SPI.COLLECTION_WH.updateOne(query, updateObject);
+        UpdateResult result = Dead_letter_timeout_SPI.COLLECTION_WH.updateOne(query, updateObject);
         if(result.getMatchedCount() > 0){
             FW.write("Webhook da mensagem com mongoId "+whId+" atualizado para: "+updateDocument);
         }

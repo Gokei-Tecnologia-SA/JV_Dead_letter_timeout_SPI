@@ -30,7 +30,7 @@ import org.bson.types.ObjectId;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Dead_letter_SPI {
+public class Dead_letter_timeout_SPI {
 
     private static String ENVIRONMENT;
     private static String QUERY_STRING;

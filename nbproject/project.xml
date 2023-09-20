@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>Dead_letter_SPI</name>
+            <name>Dead_letter_timeout_SPI</name>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
