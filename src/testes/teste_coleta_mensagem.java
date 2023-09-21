@@ -12,20 +12,12 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Properties;
 import java.util.TimeZone;
-import java.util.UUID;
 import org.xml.sax.InputSource;
-import org.bson.BsonNull;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.bson.types.ObjectId;
-import org.json.JSONObject;
 import org.w3c.dom.Element;
 import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilder;
@@ -35,6 +27,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.StringWriter;
+import entities.MessageReporter;
+import org.bson.types.ObjectId;
 
 
 public class teste_coleta_mensagem {
@@ -62,12 +56,12 @@ public static void main(String[] args) {
     COLLECTION_SENDER = database.getCollection("sender");
 
     // Inicia loop
-    // while(true){
+    while(true){
     try {
         System.out.println("#" + getCurrentDate(true, true, true, "BR") + ": Buscando mensagens não entregues...");
 
         // Coleta todas as mensagens não entregues
-        FindIterable<Document> mensagensNaoEntregues = coletaMensagensParaReenvio();
+        FindIterable<Document> mensagensNaoEntregues = coletaMensagens();
         for (Document doc : mensagensNaoEntregues) {
             // Extrai os campos desejados do documento MongoDB
             Document dadosMensagem = doc.get("dados_mensagem", Document.class);
@@ -76,6 +70,11 @@ public static void main(String[] args) {
                 if (propriedades != null) {
                     String originalInstructionId = propriedades.getString("originalInstructionId");
                         String getCurrentDate = getCurrentDate(true, true, true, "UTC");
+                        
+                    // Extrai o campo "$oid" do json
+                    ObjectId objectId = doc.getObjectId("_id");
+                        String oid = objectId.toString();
+                            System.out.println(oid);
 
                     // Verifique se a String não é nula antes de usá-la
                     if (originalInstructionId != null && getCurrentDate != null) {
@@ -94,7 +93,7 @@ public static void main(String[] args) {
                             Element creDtElement = (Element) documentExistente.getElementsByTagName("CreDt").item(0);
                             Element rjctnDtTmElement = (Element) documentExistente.getElementsByTagName("RjctnDtTm").item(0); 
 
-                            // Substitua qualquer conteúdo existente nos elementos com o valor de desejado
+                            // Substitui qualquer conteúdo existente nos elementos com o valor de desejado
                             refElement.setTextContent(originalInstructionId);
                             creDtElement.setTextContent(getCurrentDate);
                             rjctnDtTmElement.setTextContent(getCurrentDate);
@@ -107,6 +106,16 @@ public static void main(String[] args) {
                             String xmlModificado = writer.toString();
                             System.out.println(xmlModificado);
                             System.out.println();
+                            
+                            // Inicia o envio da mensagem ao webhook
+                            MessageReporter messageReporter = new MessageReporter();
+
+                            // Chame o método para enviar a mensagem ao webhook
+                            messageReporter.reportMessage(oid, xmlModificado);
+                            
+                            FileWriter logWriter = new FileWriter("log.txt"); 
+                            logWriter.write("Mensagem de log...");
+
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         }
@@ -119,10 +128,8 @@ public static void main(String[] args) {
     } catch (Exception e) {
         e.printStackTrace();
     }
-    // }
+  }
 }
-
-
     
     private static void loadProperties(){
         
@@ -146,96 +153,13 @@ public static void main(String[] args) {
         
     }
     
-        private static FindIterable<Document> coletaMensagensParaReenvio(){
+        private static FindIterable<Document> coletaMensagens(){
             Bson filter = eq("dados_mensagem.status", "HTTP_ERROR");
 
             Bson sort = eq("_id", 1L);
             Bson index = new Document("_id", 1);
             return COLLECTION_SENDER.find(filter).sort(sort).hint(index);
         }
-    
-    private static void reenviaMensagem(JSONObject chamada){
-            
-        try{
-           
-            // Coleta os dados para tentar refazer a chamada
-            String endpoint       = chamada.getString("endpoint");
-            String header         = chamada.getJSONObject("http").getJSONObject("request").getString("head");
-            String message        = chamada.getJSONObject("http").getJSONObject("request").getString("body");
-            String idempotencyKey = UUID.randomUUID().toString();
-            String whId           = chamada.getJSONObject("_id").getString("$oid");
-            int tentativaAtual    = chamada.getInt("tentativa");
-            String messageId      = null;
-            String messageCode    = null;
-            String messageVersion = null;
-            
-            // Extrai dados do cabeçalho anterior
-            String[] dadosCabecalho = header.split(",");
-            for(String dado : dadosCabecalho){
-                
-                String[] infoDado = dado.split("=");
-                switch(infoDado[0].replace("{", "").replace("}", "").trim()){
-                    case "spi-message-id":
-                        messageId = infoDado[1].replace("[", "").replace("]", "").replace("{", "").replace("}", "").trim();
-                        break;
-                    case "spi-message-code": 
-                        messageCode = infoDado[1].replace("[", "").replace("]", "").replace("{", "").replace("}", "").trim();
-                        break;
-                    case "spi-message-version":
-                        messageVersion = infoDado[1].replace("[", "").replace("]", "").replace("{", "").replace("}", "").trim();
-                        break;
-                }
-                
-            }
-            
-            if(messageId != null && messageCode != null && messageVersion != null){
-                
-                FW.write("Iniciando reenvio da mensagem com mongoId "+whId);
-                System.out.println("Reenviando mensagem "+whId);
-
-                // Tenta refazer a chamada
-                WH_MANAGER.sendRequest(whId, tentativaAtual, endpoint, message, idempotencyKey, messageId, messageCode, messageVersion);
-                
-            } else {
-                FW.write("Não foi possível extrair os dados no cabeçalho da mensagem com mongoId "+whId);
-            }
-            
-        } catch(Exception ex) {
-            FW.writeException(ex);
-        }
-        
-    }
-    
-    private static String getSavedDate(String mongoId){
-        
-        String date = "0000-00-00T00:00:00.000Z";
-        
-        Bson filter = eq("_id", new ObjectId(mongoId));
-        FindIterable<Document> result = COLLECTION_SENDER.find(filter);
-        
-        for(Document doc : result){
-            
-            JSONObject message = new JSONObject(doc.toJson());
-            
-            try{
-                
-                String currentDate = message.getString("data_gmt");
-                DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-                LocalDateTime localDateTime = LocalDateTime.parse(currentDate, inputFormatter);
-                ZoneId brazilZoneId = ZoneId.of("America/Sao_Paulo");
-                OffsetDateTime offsetDateTime = localDateTime.atZone(brazilZoneId).toOffsetDateTime();
-                DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-                return offsetDateTime.format(outputFormatter);
-                
-            }catch(Exception ex){
-                FW.writeException(ex);
-            }
-            
-        }
-        
-        return date;
-        
-    }
 
     private static String getCurrentDate(Boolean comHora, Boolean comDivisoes, Boolean comMilissegundos, String fuso){
         

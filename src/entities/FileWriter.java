@@ -13,39 +13,39 @@ import java.util.TimeZone;
 public class FileWriter {
 
     private final String FILE_NAME;
-    
+
     public FileWriter(){
         FILE_NAME = "log.txt";
     }
-    
+
     public FileWriter(String fileName){
         FILE_NAME = fileName;
     }
-    
+
     public void write(String text){
-        
+
         try{
             FileOutputStream fos = new FileOutputStream(FILE_NAME, true);
             DataOutputStream outStream = new DataOutputStream(new BufferedOutputStream(fos));
-        
+
             String header = "#OPN => "+this.getCurrentDate(true, true, true, "BR")+"\n";
             String footer = "\n#CLS => "+this.getCurrentDate(true, true, true, "BR")+"\n\n";
-            
+
             outStream.write(header.getBytes());
             outStream.write(text.getBytes());
             outStream.write(footer.getBytes());
-            
+
             outStream.close();
         } catch (Exception e){
             e.printStackTrace();
         }
-        
+
     }
-    
+
     public void writeException(Exception ex){
-        
+
         try{
-            
+
             PrintWriter pw = new PrintWriter(new FileOutputStream(new File(FILE_NAME), true));
             ex.printStackTrace(pw);
             pw.close();
@@ -55,12 +55,12 @@ public class FileWriter {
         }
 
     }
-    
-    //Get curret date and time
+
+    // Get current date and time
     private String getCurrentDate(Boolean comHora, Boolean comDivisoes, Boolean comMilissegundos, String fuso){
-        
+
         String formato = "";
-        
+
         if(comHora && comDivisoes && comMilissegundos)
             formato = "yyyy-MM-dd HH:mm:ss.SSS";
         if(comHora && comDivisoes && !comMilissegundos)
@@ -73,7 +73,7 @@ public class FileWriter {
             formato = "yyyy-MM-dd";
         if(!comHora && !comDivisoes)
             formato = "yyyyMMdd";
-        
+
         Date date = new Date();
         DateFormat df = new SimpleDateFormat(formato);
 
@@ -88,8 +88,8 @@ public class FileWriter {
                 df.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
                 break;
         }
-        
+
         return df.format(date);
-        
+
     }
 }
