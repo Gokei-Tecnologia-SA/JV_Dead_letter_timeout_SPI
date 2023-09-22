@@ -18,6 +18,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import entities.MongoDB;
 import entities.WebhookManager;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -30,34 +31,51 @@ import javax.xml.transform.dom.DOMSource;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
 
+
+
 public class Dead_letter_timeout_SPI {
 
-    private static String ENVIRONMENT;
-    private static String QUERY_STRING;
-    private static String DATABASE;
-    private static String COLLECTION_NAME;
-    private static int INTERVAL;
-    private static WebhookManager WH_MANAGER;
+    public static String ENVIRONMENT;
+    public static String MESSAGE;
+    public static String WEBHOOKURL;
+    public static String QUERY_STRING;
+    public static String DATABASE;
+    public static int INTERVAL;
+    public static WebhookManager WH_MANAGER;
     public static MongoCollection<Document> COLLECTION_WH;
-    private static MongoCollection<Document> COLLECTION_SENDER;
-    private static FileWriter FW;
+    public static MongoCollection<Document> COLLECTION_SENDER;
+    public static FileWriter FW;
+    public static MongoDB MDB;
 
     public static void main(String[] args) {
-        // Cria uma instância de FileWriter
+        // Cria instancias das dependências
         FW = new FileWriter();
-        WH_MANAGER = new WebhookManager();
         loadProperties();
+        WH_MANAGER = new WebhookManager();
+        MDB = new MongoDB();
 
         // Conecta com banco
-        MongoClient client = MongoClients.create(QUERY_STRING);
-        MongoDatabase database = client.getDatabase(DATABASE);
-        COLLECTION_WH = database.getCollection(COLLECTION_NAME);
-        COLLECTION_SENDER = database.getCollection("sender");
+        try {
+            MongoClient client = MongoClients.create(QUERY_STRING);
+            MongoDatabase database = client.getDatabase(DATABASE);
+            COLLECTION_SENDER = database.getCollection("sender");
+
+            System.out.println("Conectado com sucesso ao banco de dados.");
+            FW.write("Conectado com sucesso ao banco de dados: " + QUERY_STRING + " no ambiente: " + ENVIRONMENT + " na database: " + DATABASE);
+
+        } catch (Exception ex) {
+            System.out.println("Erro ao conectar ao banco de dados: " + ex.getMessage());
+            FW.write("Erro ao conectar ao banco de dados: " + QUERY_STRING + " no ambiente: " + ENVIRONMENT + " na database: " + DATABASE);
+            System.exit(1);
+        }
+
 
         // Inicia loop
         while (true) {
             try {
-                System.out.println("#" + getCurrentDate(true, true, true, "BR") + ": Buscando mensagens não entregues...");
+                String currentDate = getCurrentDate(true, true, true, "BR");
+                System.out.println("#" + currentDate + ": Buscando mensagens não entregues...");
+                FW.write("#" + currentDate + ": Buscando mensagens não entregues...");
 
                 // Coleta todas as mensagens não entregues
                 FindIterable<Document> mensagensNaoEntregues = coletaMensagens();
@@ -66,16 +84,24 @@ public class Dead_letter_timeout_SPI {
                     if (dadosMensagem != null) {
                         Document propriedades = dadosMensagem.get("propriedades", Document.class);
                         if (propriedades != null) {
+                            FW.write("JSON encontrado: " + doc.toJson());
+
+                            System.out.println("Iniciando fase de processamento");
+                            FW.write("Iniciando fase de processamento");
+
                             String originalInstructionId = propriedades.getString("originalInstructionId");
                             String getCurrentDate = getCurrentDate(true, true, true, "UTC");
                             ObjectId objectId = doc.getObjectId("_id");
                             String oid = objectId.toString();
-                            
+
+                            System.out.println("Processando mensagem com OID: " + oid);
                             FW.write("Processando mensagem com OID: " + oid);
 
                             if (originalInstructionId != null && getCurrentDate != null) {
                                 try {
-                                    String xmlExistente = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>99999999</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M0000000000000000000000000000000</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-09-02T04:20:12.821Z</CreDt><Sgntr><ds:Signature></ds:Signature></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M78632767Jqq3VuURG51EWgHUx9PA65d</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento da PSTI</RjctgPtyRsn><RjctnDtTm>2023-09-02T04:20:12.763Z</RjctnDtTm><RsnDesc>Erro ao tentar realizar requisição HTTP ao BACEN</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>";
+                                    System.out.println("Iniciando conversão de xmlExistente");
+                                    FW.write("Iniciando conversão de xmlExistente");
+                                    String xmlExistente = MESSAGE;
                                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                                     DocumentBuilder builder = factory.newDocumentBuilder();
                                     org.w3c.dom.Document documentExistente = builder.parse(new InputSource(new StringReader(xmlExistente)));
@@ -94,9 +120,13 @@ public class Dead_letter_timeout_SPI {
                                     transformer.transform(new DOMSource(documentExistente), new StreamResult(writer));
                                     String xmlModificado = writer.toString();
 
+                                    FW.write("Processando Xml: " + xmlModificado);
+
                                     MessageReporter messageReporter = new MessageReporter();
-                                    messageReporter.reportMessage(oid, xmlModificado);
-                                    //System.out.println(xmlModificado);
+                                    String response = messageReporter.reportMessage(oid, xmlModificado);
+
+                                    // Processamento da resposta do webhook
+                                    handleWebhookResponse(response);
 
                                 } catch (Exception ex) {
                                     ex.printStackTrace();
@@ -119,47 +149,61 @@ public class Dead_letter_timeout_SPI {
             }
         }
     }
-    
-    private static void loadProperties(){
-        try(InputStream input = new FileInputStream("properties.config")){
+
+    private static void handleWebhookResponse(String response) {
+        try {
+            // Registra o corpo da resposta no log
+            System.out.println("Resposta do Webhook: " + response);
+            FW.write("Resposta do Webhook: " + response);
+        } catch (Exception e) {
+            System.out.println("Erro ao processar a resposta do webhook: " + e.getMessage());
+            FW.writeException(e);
+        }
+    }
+
+    public static void loadProperties() {
+        try (InputStream input = new FileInputStream(".gitignore")) {
             Properties prop = new Properties();
             prop.load(input);
+
+            MESSAGE = prop.getProperty("existent_message");
             ENVIRONMENT = prop.getProperty("ambiente");
-            QUERY_STRING = prop.getProperty("query_string_"+ENVIRONMENT);
-            DATABASE = prop.getProperty("database_"+ENVIRONMENT);
-            COLLECTION_NAME = "wh_calls";
-            INTERVAL = Integer.parseInt(prop.getProperty("interval_ms"));
-            FW.write("Aplicação iniciada no ambiente: "+ENVIRONMENT);
-        } catch(Exception e){
+            QUERY_STRING = prop.getProperty("query_string_" + ENVIRONMENT);
+            DATABASE = prop.getProperty("database_" + ENVIRONMENT);
+            WEBHOOKURL = prop.getProperty("webhookurl");
+
+            FW.write("Aplicação iniciada no ambiente: " + ENVIRONMENT);
+
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             FW.writeException(e);
             System.exit(1);
         }
     }
-    
-    private static FindIterable<Document> coletaMensagens(){
+
+    private static FindIterable<Document> coletaMensagens() {
         Bson filter = eq("dados_mensagem.status", "HTTP_ERROR");
         Bson sort = eq("_id", 1L);
         Bson index = new Document("_id", 1);
         return COLLECTION_SENDER.find(filter).sort(sort).hint(index);
     }
 
-    private static String getCurrentDate(Boolean comHora, Boolean comDivisoes, Boolean comMilissegundos, String fuso){
+    private static String getCurrentDate(Boolean comHora, Boolean comDivisoes, Boolean comMilissegundos, String fuso) {
         String formato = "";
-        
-        if(comHora && comDivisoes && comMilissegundos)
+
+        if (comHora && comDivisoes && comMilissegundos)
             formato = "yyyy-MM-dd HH:mm:ss.SSS";
-        if(comHora && comDivisoes && !comMilissegundos)
+        if (comHora && comDivisoes && !comMilissegundos)
             formato = "yyyy-MM-dd HH:mm:ss";
-        if(comHora && !comDivisoes && comMilissegundos)
+        if (comHora && !comDivisoes && comMilissegundos)
             formato = "yyyyMMddHHmmssSSS";
-        if(comHora && !comDivisoes && !comMilissegundos)
+        if (comHora && !comDivisoes && !comMilissegundos)
             formato = "yyyyMMddHHmmss";
-        if(!comHora && comDivisoes)
+        if (!comHora && comDivisoes)
             formato = "yyyy-MM-dd";
-        if(!comHora && !comDivisoes)
+        if (!comHora && !comDivisoes)
             formato = "yyyyMMdd";
-        
+
         Date date = new Date();
         DateFormat df = new SimpleDateFormat(formato);
 
@@ -174,7 +218,7 @@ public class Dead_letter_timeout_SPI {
                 df.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
                 break;
         }
-        
+
         return df.format(date);
     }
 }

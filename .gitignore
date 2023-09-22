@@ -1,0 +1,16 @@
+#COMMON
+ambiente=homol
+interval_ms=15000
+ispbs=78632767
+
+#HOMOL
+query_string_homol=mongodb://spi_oiv_hml:SRysz87z05qE@10.204.156.3:27017/?directConnection=true&authSource=SPI_78632767_HM
+database_homol=SPI_78632767_HM
+webhookurl=https://api-pix-gokei-hml.ourinvest.com.br/api/v1/gokei/spi/in/messages
+
+#PROD
+query_string_prod=mongodb://spi_oiv_prd:1yOiN42KGmtuK9TIK@10.204.157.3:27017/?directConnection=true&authSource=SPI_78632767_PR
+database_prod=SPI_78632767_PR
+
+#MESSAGE
+existent_message=<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><Envelope xmlns=\"https://www.bcb.gov.br/pi/admi.002/1.3\"><AppHdr><Fr><FIId><FinInstnId><Othr><Id>99999999</Id></Othr></FinInstnId></FIId></Fr><To><FIId><FinInstnId><Othr><Id>78632767</Id></Othr></FinInstnId></FIId></To><BizMsgIdr>M0000000000000000000000000000000</BizMsgIdr><MsgDefIdr>admi.002.spi.1.3</MsgDefIdr><CreDt>2023-09-02T04:20:12.821Z</CreDt><Sgntr></Sgntr></AppHdr><Document><admi.002.001.01><RltdRef><Ref>M78632767Jqq3VuURG51EWgHUx9PA65d</Ref></RltdRef><Rsn><RjctgPtyRsn>Erro no processamento da PSTI</RjctgPtyRsn><RjctnDtTm>2023-09-02T04:20:12.763Z</RjctnDtTm><RsnDesc>Erro ao tentar realizar requisição HTTP ao BACEN</RsnDesc></Rsn></admi.002.001.01></Document></Envelope>

@@ -1,8 +1,8 @@
 package entities;
 
-import com.dead_letter_timeout_spi.common.Globals;
 import com.dead_letter_timeout_spi.common.Library;
-import com.dead_letter_timeout_spi.common.Logger;
+import dead_letter_timeout_spi.Dead_letter_timeout_SPI;
+import static dead_letter_timeout_spi.Dead_letter_timeout_SPI.FW;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,6 +18,7 @@ public class WebhookManager {
     private BsonValue ID_WH_LOG;
     private String INSERTED_MESSAGE_ID;
     private String REQUEST_ID;
+    public String WEBHOOKURL = Dead_letter_timeout_SPI.WEBHOOKURL;
     private String lastHttpResponse;
     public String getLastHttpResponse() {
     return lastHttpResponse;
@@ -32,7 +33,7 @@ public class WebhookManager {
 
         try {
 
-            URL url = new URL(Globals.getREPORT_ENDPOINT());
+            URL url = new URL(WEBHOOKURL);
 
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
@@ -43,12 +44,11 @@ public class WebhookManager {
             connection.addRequestProperty("spi-message-code", "admi.002");
             connection.addRequestProperty("spi-message-version", "admi.002.spi.1.3");
             connection.addRequestProperty("current-attempt", String.valueOf(currentAttempt));
-            connection.setRequestProperty("Authorization", Globals.getREPORT_TOKEN());
 
             connection.setUseCaches(false);
             connection.setDoOutput(true);
-            connection.setConnectTimeout(Globals.getREPORT_MAX_TIMETOUT());
-            connection.setReadTimeout(Globals.getREPORT_MAX_TIMETOUT());
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
             String requestHeader = connection.getRequestProperties().toString();
 
             OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream(), StandardCharsets.UTF_8);
@@ -72,8 +72,8 @@ public class WebhookManager {
 
             responseDate = Library.getDate(true, true, true, false, "BR");
 
-            ID_WH_LOG = Globals.getMONGODB().saveWHLog(
-                    Globals.getREPORT_ENDPOINT(),
+            ID_WH_LOG = Dead_letter_timeout_SPI.MDB.saveWHLog(
+                    WEBHOOKURL,
                     INSERTED_MESSAGE_ID != null ? INSERTED_MESSAGE_ID : "NULL",
                     xmlModificado,
                     httpResponse.toString(),
@@ -83,20 +83,17 @@ public class WebhookManager {
                     responseDate,
                     responseHeader,
                     currentAttempt,
-                    Globals.getREPORT_TYPE_LABEL_REPORT()
+                    "REPORT"
             );
             lastHttpResponse = httpResponse.toString();
-            Logger.write(Thread.currentThread().getStackTrace(), Globals.getLOG_LABEL_INFO(), "Report da mensagem " + INSERTED_MESSAGE_ID + " recebeu o retorno: " + httpResponse.toString());
             return httpResponse.toString();
 
         } catch (IOException ex) {
             // Trate exceções de IO especificamente, como SocketTimeoutException, IOException, etc.
-            Logger.writeError(Thread.currentThread().getStackTrace(), Globals.getLOG_LABEL_WARNING(), "Report não conseguiu notificar o webhook sobre a mensagem com o Mongo ID " + INSERTED_MESSAGE_ID + " (tentativa " + currentAttempt + ")");
-            Logger.writeException(ex);
+            FW.writeException(ex);
         } catch (Exception ex) {
             // Trate outras exceções aqui
-            Logger.writeError(Thread.currentThread().getStackTrace(), Globals.getLOG_LABEL_WARNING(), "Erro desconhecido durante o envio do relatório da mensagem com o Mongo ID " + INSERTED_MESSAGE_ID + " (tentativa " + currentAttempt + ")");
-            Logger.writeException(ex);
+            FW.writeException(ex);
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -125,6 +122,10 @@ public class WebhookManager {
 
     public void setREQUEST_ID(String REQUEST_ID) {
         this.REQUEST_ID = REQUEST_ID;
+    }
+
+    String WebHookUrl() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

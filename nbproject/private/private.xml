@@ -11,5 +11,10 @@
         <group name="ListenerSPI">
             <file>file:/home/rafael/Documentos/GitHub/Dead_letter_timeout_SPI/src/testes/teste_coleta_mensagem.java</file>
         </group>
+        <group>
+            <file>file:/home/rafael/Documentos/GitHub/Dead_letter_timeout_SPI/src/testes/teste_coleta_mensagem.java</file>
+            <file>file:/home/rafael/Documentos/GitHub/Dead_letter_timeout_SPI/src/dead_letter_timeout_spi/Dead_letter_timeout_SPI.java</file>
+            <file>file:/home/rafael/Documentos/GitHub/Dead_letter_timeout_SPI/src/entities/MessageReporter.java</file>
+        </group>
     </open-files>
 </project-private>
