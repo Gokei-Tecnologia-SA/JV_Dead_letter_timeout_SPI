@@ -19,7 +19,7 @@ public class WebhookManager {
     private String INSERTED_MESSAGE_ID;
     private String REQUEST_ID;
     public String WEBHOOKURL = Dead_letter_timeout_SPI.WEBHOOKURL;
-    private String lastHttpResponse;
+    public static String lastHttpResponse;
     public String getLastHttpResponse() {
     return lastHttpResponse;
     }

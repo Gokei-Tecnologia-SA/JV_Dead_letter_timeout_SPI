@@ -84,7 +84,7 @@ public class Dead_letter_timeout_SPI {
                     if (dadosMensagem != null) {
                         Document propriedades = dadosMensagem.get("propriedades", Document.class);
                         if (propriedades != null) {
-                            FW.write("JSON encontrado: " + doc.toJson());
+                            //FW.write("JSON encontrado: " + doc.toJson());
 
                             System.out.println("Iniciando fase de processamento");
                             FW.write("Iniciando fase de processamento");
@@ -95,7 +95,7 @@ public class Dead_letter_timeout_SPI {
                             String oid = objectId.toString();
 
                             System.out.println("Processando mensagem com OID: " + oid);
-                            FW.write("Processando mensagem com OID: " + oid);
+                            FW.write("Processando mensagem com OID: " + oid + "\nMais JSON:" + doc.toJson());
 
                             if (originalInstructionId != null && getCurrentDate != null) {
                                 try {
@@ -152,9 +152,11 @@ public class Dead_letter_timeout_SPI {
 
     private static void handleWebhookResponse(String response) {
         try {
+            System.out.println("Resposta HTTP do Webhook: " + entities.WebhookManager.lastHttpResponse);
+            FW.write("Resposta HTTP do Webhook: " + entities.WebhookManager.lastHttpResponse);
             // Registra o corpo da resposta no log
             System.out.println("Resposta do Webhook: " + response);
-            FW.write("Resposta do Webhook: " + response);
+            FW.write("Id de retorno Webhook: " + response);
         } catch (Exception e) {
             System.out.println("Erro ao processar a resposta do webhook: " + e.getMessage());
             FW.writeException(e);
