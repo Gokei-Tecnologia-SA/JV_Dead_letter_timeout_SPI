@@ -164,7 +164,7 @@ public class Dead_letter_timeout_SPI {
     }
 
     public static void loadProperties() {
-        try (InputStream input = new FileInputStream(".gitignore")) {
+        try (InputStream input = new FileInputStream("properties")) {
             Properties prop = new Properties();
             prop.load(input);
 
