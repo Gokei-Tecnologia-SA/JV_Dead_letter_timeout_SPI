@@ -63,9 +63,6 @@ public class WebhookManager {
             while ((line = rd.readLine()) != null) {
                 httpResponse.append(line);
             }
-            
-            System.out.println("Resposta do Webhook: " + httpResponse.toString());
-
 
             responseHeader = connection.getHeaderFields().toString();
             rd.close();
@@ -89,10 +86,10 @@ public class WebhookManager {
             return httpResponse.toString();
 
         } catch (IOException ex) {
-            // Trate exceções de IO especificamente, como SocketTimeoutException, IOException, etc.
+            // Trata exceções de IO especificamente, como SocketTimeoutException, IOException, etc.
             FW.writeException(ex);
         } catch (Exception ex) {
-            // Trate outras exceções aqui
+            // Trata outras exceções aqui
             FW.writeException(ex);
         } finally {
             if (connection != null) {
@@ -122,10 +119,6 @@ public class WebhookManager {
 
     public void setREQUEST_ID(String REQUEST_ID) {
         this.REQUEST_ID = REQUEST_ID;
-    }
-
-    String WebHookUrl() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
