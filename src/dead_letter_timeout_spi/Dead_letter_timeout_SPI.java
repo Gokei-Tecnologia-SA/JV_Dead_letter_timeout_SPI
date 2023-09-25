@@ -44,6 +44,7 @@ public class Dead_letter_timeout_SPI {
     public static WebhookManager WH_MANAGER;
     public static MongoCollection<Document> COLLECTION_WH;
     public static MongoCollection<Document> COLLECTION_SENDER;
+    public static MongoCollection<Document> COLLECTION_WEBHOOK_LOG;
     public static FileWriter FW;
     public static MongoDB MDB;
 
@@ -59,6 +60,7 @@ public class Dead_letter_timeout_SPI {
             MongoClient client = MongoClients.create(QUERY_STRING);
             MongoDatabase database = client.getDatabase(DATABASE);
             COLLECTION_SENDER = database.getCollection("sender");
+            COLLECTION_WEBHOOK_LOG = database.getCollection("wh_calls");
 
             System.out.println("Conectado com sucesso ao banco de dados.");
             FW.write("Conectado com sucesso ao banco de dados: " + QUERY_STRING + " no ambiente: " + ENVIRONMENT + " na database: " + DATABASE);
@@ -68,7 +70,6 @@ public class Dead_letter_timeout_SPI {
             FW.write("Erro ao conectar ao banco de dados: " + QUERY_STRING + " no ambiente: " + ENVIRONMENT + " na database: " + DATABASE);
             System.exit(1);
         }
-
 
         // Inicia loop
         while (true) {
@@ -81,59 +82,67 @@ public class Dead_letter_timeout_SPI {
                 FindIterable<Document> mensagensNaoEntregues = coletaMensagens();
                 for (Document doc : mensagensNaoEntregues) {
                     Document dadosMensagem = doc.get("dados_mensagem", Document.class);
-                    if (dadosMensagem != null) {
-                        Document propriedades = dadosMensagem.get("propriedades", Document.class);
-                        if (propriedades != null) {
-                            //FW.write("JSON encontrado: " + doc.toJson());
+     
+                 Document propriedades = dadosMensagem.get("propriedades", Document.class);
 
-                            System.out.println("Iniciando fase de processamento");
-                            FW.write("Iniciando fase de processamento");
+                String originalInstructionId = propriedades.getString("originalInstructionId");
+                String getCurrentDate = getCurrentDate(true, true, true, "UTC");
+                ObjectId objectId = doc.getObjectId("_id");
+                String oid = objectId.toString();
 
-                            String originalInstructionId = propriedades.getString("originalInstructionId");
-                            String getCurrentDate = getCurrentDate(true, true, true, "UTC");
-                            ObjectId objectId = doc.getObjectId("_id");
-                            String oid = objectId.toString();
+                if (verificaEnvio(oid)) {
+                    System.out.println("Mensagem com OID " + oid + " já existe no banco de dados. Pulando o processamento.");
+                    FW.write("Mensagem com OID " + oid + " já existe no banco de dados. Pulando o processamento.");
+                    continue;
+                }
 
-                            System.out.println("Processando mensagem com OID: " + oid);
-                            FW.write("Processando mensagem com OID: " + oid + "\nMais JSON:" + doc.toJson());
+                System.out.println("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
+                FW.write("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
 
-                            if (originalInstructionId != null && getCurrentDate != null) {
-                                try {
-                                    System.out.println("Iniciando conversão de xmlExistente");
-                                    FW.write("Iniciando conversão de xmlExistente");
-                                    String xmlExistente = MESSAGE;
-                                    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                                    DocumentBuilder builder = factory.newDocumentBuilder();
-                                    org.w3c.dom.Document documentExistente = builder.parse(new InputSource(new StringReader(xmlExistente)));
 
-                                    Element refElement = (Element) documentExistente.getElementsByTagName("Ref").item(0);
-                                    Element creDtElement = (Element) documentExistente.getElementsByTagName("CreDt").item(0);
-                                    Element rjctnDtTmElement = (Element) documentExistente.getElementsByTagName("RjctnDtTm").item(0);
+                    try {
+                        System.out.println("Iniciando conversão de xmlExistente da mensagem com oid: " + oid + "\n");
+                        FW.write("Iniciando conversão de xmlExistente da mensagem com oid: " + oid + "\n");
+                        String xmlExistente = MESSAGE;
+                        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                        DocumentBuilder builder = factory.newDocumentBuilder();
+                        org.w3c.dom.Document documentExistente = builder.parse(new InputSource(new StringReader(xmlExistente)));
 
-                                    refElement.setTextContent(originalInstructionId);
-                                    creDtElement.setTextContent(getCurrentDate);
-                                    rjctnDtTmElement.setTextContent(getCurrentDate);
+                        Element refElement = (Element) documentExistente.getElementsByTagName("Ref").item(0);
+                        Element creDtElement = (Element) documentExistente.getElementsByTagName("CreDt").item(0);
+                        Element rjctnDtTmElement = (Element) documentExistente.getElementsByTagName("RjctnDtTm").item(0);
 
-                                    TransformerFactory tf = TransformerFactory.newInstance();
-                                    Transformer transformer = tf.newTransformer();
-                                    StringWriter writer = new StringWriter();
-                                    transformer.transform(new DOMSource(documentExistente), new StreamResult(writer));
-                                    String xmlModificado = writer.toString();
+                        refElement.setTextContent(originalInstructionId);
+                        creDtElement.setTextContent(getCurrentDate);
+                        rjctnDtTmElement.setTextContent(getCurrentDate);
 
-                                    FW.write("Processando Xml: " + xmlModificado);
+                        TransformerFactory tf = TransformerFactory.newInstance();
+                        Transformer transformer = tf.newTransformer();
+                        StringWriter writer = new StringWriter();
+                        transformer.transform(new DOMSource(documentExistente), new StreamResult(writer));
+                        String xmlModificado = writer.toString();
 
-                                    MessageReporter messageReporter = new MessageReporter();
-                                    String response = messageReporter.reportMessage(oid, xmlModificado);
+                        FW.write("Processando Xml do oid: oid: " + oid + "" + xmlModificado);
 
-                                    // Processamento da resposta do webhook
-                                    handleWebhookResponse(response);
+                        MessageReporter messageReporter = new MessageReporter();
+                        String response = messageReporter.reportMessage(oid, xmlModificado);
 
-                                } catch (Exception ex) {
-                                    ex.printStackTrace();
-                                    FW.writeException(ex);
-                                }
-                            }
+                        // Processamento da resposta do webhook
+
+                        handleWebhookResponse(response);
+
+                        if (WebhookManager.lastHttpResponse != null && WebhookManager.lastHttpResponse.contains("<STATUS>RECEIVED</STATUS>")) {
+                            System.out.println("Mensagem " + oid + " enviada com sucesso ao webhook.\n");
+                            FW.write("Mensagem " + oid + " enviada com sucesso ao webhook.");
+                        }else{
+                            System.out.println("Mensagem " + oid + " não foi enviada devido ao erro " + handleWebhookResponse(response) + "\n");
+                            FW.write("Mensagem " + oid + " não foi enviada devido ao erro " + handleWebhookResponse(response) + "");
+                            continue;
                         }
+
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                        FW.writeException(ex);
                     }
                 }
             } catch (Exception e) {
@@ -142,7 +151,7 @@ public class Dead_letter_timeout_SPI {
             }
 
             try {
-                Thread.sleep(INTERVAL);
+                Thread.sleep(60000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
                 FW.writeException(ex);
@@ -150,17 +159,16 @@ public class Dead_letter_timeout_SPI {
         }
     }
 
-    private static void handleWebhookResponse(String response) {
+    private static String handleWebhookResponse(String response) {
         try {
+            // Registra o corpo da resposta no log
             System.out.println("Resposta HTTP do Webhook: " + entities.WebhookManager.lastHttpResponse);
             FW.write("Resposta HTTP do Webhook: " + entities.WebhookManager.lastHttpResponse);
-            // Registra o corpo da resposta no log
-            System.out.println("Resposta do Webhook: " + response);
-            FW.write("Id de retorno Webhook: " + response);
         } catch (Exception e) {
             System.out.println("Erro ao processar a resposta do webhook: " + e.getMessage());
             FW.writeException(e);
         }
+        return null;
     }
 
     public static void loadProperties() {
@@ -189,7 +197,12 @@ public class Dead_letter_timeout_SPI {
         Bson index = new Document("_id", 1);
         return COLLECTION_SENDER.find(filter).sort(sort).hint(index);
     }
-
+    
+    private static boolean verificaEnvio(String oid) {
+        Bson filter = eq("mensagem_enviada", oid);
+        return COLLECTION_WEBHOOK_LOG.find(filter).first() != null;
+    }
+    
     private static String getCurrentDate(Boolean comHora, Boolean comDivisoes, Boolean comMilissegundos, String fuso) {
         String formato = "";
 

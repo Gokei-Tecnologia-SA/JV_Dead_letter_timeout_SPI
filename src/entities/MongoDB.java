@@ -66,7 +66,7 @@ public class MongoDB {
         return COLLECTION_WEBHOOK_LOG;
     }
 
-    public BsonValue saveWHLog(String endpoint, String idReceivedMessage, String request, String response, String requestId, String requestDate, String requestHeader, String responseDate, String responseHeader, int attempt, String reportType) {
+    public BsonValue saveWHLog(String endpoint, String idSendedMessage, String request, String response, String requestId, String requestDate, String requestHeader, String responseDate, String responseHeader, int attempt, String reportType) {
         try {
             BasicDBObject main = new BasicDBObject();
             main.append("tipo", reportType);
@@ -74,8 +74,8 @@ public class MongoDB {
             main.append("endpoint", endpoint);
             main.append("data", Library.getDate(true, true, true, false, "BR"));
             main.append("tentativa", attempt);
-            main.append("mensagem_recebida", idReceivedMessage);
-            main.append("mensagem_enviada", null);
+            main.append("mensagem_recebida", null);
+            main.append("mensagem_enviada", idSendedMessage);
 
             BasicDBObject req = new BasicDBObject();
             req.append("data", requestDate);
