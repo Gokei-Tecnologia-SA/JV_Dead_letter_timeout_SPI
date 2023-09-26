@@ -84,11 +84,14 @@ public class Dead_letter_timeout_SPI {
                     if (originalInstructionId == null) {
                         String endToEnd = propriedades.getString("endToEnd");
                         String returnId = propriedades.getString("returnId");
+                        String msgId = propriedades.getString("msgId");
 
                         if (endToEnd != null) {
                             originalInstructionId = endToEnd;
                         } else if (returnId != null) {
                             originalInstructionId = returnId;
+                        } else if (msgId != null) {
+                            originalInstructionId = msgId;
                         }
                     }
                 
@@ -98,12 +101,12 @@ public class Dead_letter_timeout_SPI {
 
                 if (verificaEnvio(oid)) {
                     System.out.println("Mensagem com OID " + oid + " já existe no banco de dados. Pulando o processamento.");
-                    FW.write("Mensagem com OID " + oid + " já existe no banco de dados. Pulando o processamento.");
+                    //FW.write("Mensagem com OID " + oid + " já existe no banco de dados. Pulando o processamento.");
                     continue;
                 }
 
                 System.out.println("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
-                //FW.write("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
+                FW.write("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
 
 
                     try {
