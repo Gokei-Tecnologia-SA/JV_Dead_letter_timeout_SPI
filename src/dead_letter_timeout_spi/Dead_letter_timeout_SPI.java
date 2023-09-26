@@ -74,18 +74,24 @@ public class Dead_letter_timeout_SPI {
         // Inicia loop
         while (true) {
             try {
-                String currentDate = getCurrentDate(true, true, true, "BR");
-                System.out.println("#" + currentDate + ": Buscando mensagens não entregues...");
-                FW.write("#" + currentDate + ": Buscando mensagens não entregues...");
-
-                // Coleta todas as mensagens não entregues
                 FindIterable<Document> mensagensNaoEntregues = coletaMensagens();
                 for (Document doc : mensagensNaoEntregues) {
                     Document dadosMensagem = doc.get("dados_mensagem", Document.class);
-     
-                 Document propriedades = dadosMensagem.get("propriedades", Document.class);
+                    Document propriedades = dadosMensagem.get("propriedades", Document.class);
 
-                String originalInstructionId = propriedades.getString("originalInstructionId");
+                    String originalInstructionId = propriedades.getString("originalInstructionId");
+
+                    if (originalInstructionId == null) {
+                        String endToEnd = propriedades.getString("endToEnd");
+                        String returnId = propriedades.getString("returnId");
+
+                        if (endToEnd != null) {
+                            originalInstructionId = endToEnd;
+                        } else if (returnId != null) {
+                            originalInstructionId = returnId;
+                        }
+                    }
+                
                 String getCurrentDate = getCurrentDate(true, true, true, "UTC");
                 ObjectId objectId = doc.getObjectId("_id");
                 String oid = objectId.toString();
@@ -97,7 +103,7 @@ public class Dead_letter_timeout_SPI {
                 }
 
                 System.out.println("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
-                FW.write("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
+                //FW.write("Mensagem " + oid + " não encontrada no banco de dados. Enviando mensagem ao Webhook.\n");
 
 
                     try {
