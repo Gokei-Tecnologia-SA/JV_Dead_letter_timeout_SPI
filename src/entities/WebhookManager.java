@@ -13,6 +13,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import org.bson.BsonValue;
 
+
 public class WebhookManager {
 
     private BsonValue ID_WH_LOG;
@@ -40,7 +41,7 @@ public class WebhookManager {
 
             connection.setRequestProperty("content-type", "application/xml");
             connection.addRequestProperty("idempotencykey", idempotencyKey);
-            connection.addRequestProperty("spi-message-id", "M0000000000000000000000000000000");
+            connection.addRequestProperty("spi-message-id", messageId);
             connection.addRequestProperty("spi-message-code", "admi.002");
             connection.addRequestProperty("spi-message-version", "admi.002.spi.1.3");
             connection.addRequestProperty("current-attempt", String.valueOf(currentAttempt));

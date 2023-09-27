@@ -1,5 +1,6 @@
 package dead_letter_timeout_spi;
 
+import static com.dead_letter_timeout_spi.common.Library.generateRandomAlphanumericString;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.DateFormat;
@@ -112,29 +113,35 @@ public class Dead_letter_timeout_SPI {
                     try {
                         System.out.println("Iniciando conversão de xmlExistente da mensagem com oid: " + oid + "\n");
                         FW.write("Iniciando conversão de xmlExistente da mensagem com oid: " + oid + "\n");
-                        String xmlExistente = MESSAGE;
-                        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                        DocumentBuilder builder = factory.newDocumentBuilder();
-                        org.w3c.dom.Document documentExistente = builder.parse(new InputSource(new StringReader(xmlExistente)));
+                    String xmlExistente = MESSAGE;
+                    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                    DocumentBuilder builder = factory.newDocumentBuilder();
+                    org.w3c.dom.Document documentExistente = builder.parse(new InputSource(new StringReader(xmlExistente)));
 
-                        Element refElement = (Element) documentExistente.getElementsByTagName("Ref").item(0);
-                        Element creDtElement = (Element) documentExistente.getElementsByTagName("CreDt").item(0);
-                        Element rjctnDtTmElement = (Element) documentExistente.getElementsByTagName("RjctnDtTm").item(0);
+                    Element refElement = (Element) documentExistente.getElementsByTagName("Ref").item(0);
+                    Element creDtElement = (Element) documentExistente.getElementsByTagName("CreDt").item(0);
+                    Element rjctnDtTmElement = (Element) documentExistente.getElementsByTagName("RjctnDtTm").item(0);
+                    
+                    Element bizMsgIdrElement = (Element) documentExistente.getElementsByTagName("BizMsgIdr").item(0);
+                    String novoValorBizMsgIdr = generateRandomAlphanumericString();
 
-                        refElement.setTextContent(originalInstructionId);
-                        creDtElement.setTextContent(getCurrentDate);
-                        rjctnDtTmElement.setTextContent(getCurrentDate);
+                    String msgId = "M99999999" +novoValorBizMsgIdr;
+                    bizMsgIdrElement.setTextContent(msgId);
+                    
+                    refElement.setTextContent(originalInstructionId);
+                    creDtElement.setTextContent(getCurrentDate);
+                    rjctnDtTmElement.setTextContent(getCurrentDate);
 
-                        TransformerFactory tf = TransformerFactory.newInstance();
-                        Transformer transformer = tf.newTransformer();
-                        StringWriter writer = new StringWriter();
-                        transformer.transform(new DOMSource(documentExistente), new StreamResult(writer));
-                        String xmlModificado = writer.toString();
+                    TransformerFactory tf = TransformerFactory.newInstance();
+                    Transformer transformer = tf.newTransformer();
+                    StringWriter writer = new StringWriter();
+                    transformer.transform(new DOMSource(documentExistente), new StreamResult(writer));
+                    String xmlModificado = writer.toString();
 
-                        FW.write("Processando Xml do oid: oid: " + oid + "" + xmlModificado);
+                        FW.write("Processando Xml do oid: oid: " + oid + "Do xml: " + xmlModificado + "MsgId do webhook: " + msgId);
 
                         MessageReporter messageReporter = new MessageReporter();
-                        String response = messageReporter.reportMessage(oid, xmlModificado);
+                        String response = messageReporter.reportMessage(oid, xmlModificado, msgId);
 
                         // Processamento da resposta do webhook
 

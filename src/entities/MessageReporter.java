@@ -12,10 +12,9 @@ public class MessageReporter {
     private final int ATTEMPTS = 5;
     private final WebhookManager WEBHOOK_MANAGER = new WebhookManager();
 
-    public String reportMessage(String oid, String xmlModificado) {
+    public String reportMessage(String oid, String xmlModificado, String messageId) {
         try {
             String messageCode = "admi.002";
-            String messageId = "M0000000000000000000000000000000";
             String messageVersion = "admi.002.spi.1.3";
 
             int currentAttempts = 1;

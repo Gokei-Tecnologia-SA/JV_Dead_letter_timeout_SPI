@@ -70,6 +70,7 @@ public class MongoDB {
         try {
             BasicDBObject main = new BasicDBObject();
             main.append("tipo", reportType);
+            main.append("subtipo", "REPORT_HTTPERROR");
             main.append("request_id", requestId);
             main.append("endpoint", endpoint);
             main.append("data", Library.getDate(true, true, true, false, "BR"));

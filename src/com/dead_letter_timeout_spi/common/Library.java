@@ -143,8 +143,9 @@ public class Library {
         }
     }
 
-    public static String generateRandomAlphanumericString(int size) {
+    public static String generateRandomAlphanumericString() {
         try {
+            int size = 23;
             int leftLimit = 48;
             int rightLimit = 122;
             Random random = new Random();
